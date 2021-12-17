@@ -36,14 +36,14 @@ Here's a list of changes that the parser performs, in order to make the GraphQL 
 
 **Problem**: GraphQL uses `location` field to store the AST locations, while ESTree also uses it in a different structure.
 
-**Solution**: The parser creates a new `location` field that is compatible with ESTree, and renames the GraphQL `location` to `gqlLocation`.
+**Solution**: The parser creates a new `location` field that is compatible with ESTree.
 
 ### Loading GraphQL Schema
 
-If you are using [`graphql-config`](https://graphql-config.com/) in your project, the parser will automatically use that to load your default GraphQL schema (you can disable this behaviour using `skipGraphQLConfig: true` in the `parserOptions`).
+If you are using [`graphql-config`](https://graphql-config.com) in your project, the parser will automatically use that to load your default GraphQL schema (you can disable this behaviour using `skipGraphQLConfig: true` in the `parserOptions`).
 
 If you are not using `graphql-config`, you can specify `parserOptions.schema` to load your GraphQL schema. The parser uses `graphql-tools` and it's loaders, that means you can either specify a URL, a path to a local `.json` (introspection) file, or a path to a local `.graphql` file(s). You can also use Glob expressions to load multiple files.
 
-[You can find more detail on the `parserOptions` config here](./parser-options.md)
+[You can find more detail on the `parserOptions` config here](parser-options.md)
 
 Providing the schema will make sure that rules that needs it will be able to access it, and it enriches every converted AST node with `typeInfo`.
